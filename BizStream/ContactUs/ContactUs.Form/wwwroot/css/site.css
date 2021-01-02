@@ -1,0 +1,30 @@
+﻿h1{
+    font: 38px;
+
+    color: red;
+}
+
+label{
+    font: 16px;
+    font-family: Arial;
+    font-weight: bold;
+
+    color: green;
+}
+
+input, textarea {
+    font: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-color: #0087aa;
+}
+
+input {
+    height: 36px;
+}
+
+.submit {
+    background-color: #0087aa;
+    color: #ffffff;
+}

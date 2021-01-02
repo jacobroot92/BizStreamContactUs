@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ContactUs.Form.Models.UserMessage>
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div>
+    <h1>Contact Us Form</h1>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div>
+            <label>First Name</label>
+            <br />
+            <input name="firstName" />
+        </div>
+        <div>
+            <label>Last Name</label>
+            <br />
+            <input name="lastName" />
+        </div>
+        <div>
+            <label>Email</label>
+            <br />
+            <input name="email" type="email" pattern="^[a-zA-Z0-9._+-]+@("@")[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" />
+        </div>
+        <div>
+            <label>Message</label>
+            <br />
+            <textarea rows="7" resize="none" name="message" ></textarea>
+        </div>
+        <br />
+        <input type="submit" value="Submit" class="submit" />
+    }
+</div>
+
+<div class="messagesTable">
+    @if (Model.Any())
+    {
+        <h2>Submitted User Messages</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+            @foreach (ContactUs.Form.Models.UserMessage message in Model)
+            {
+                <tr>
+                    <td>@message.FirstName @message.LastName</td>
+                    <td>@message.Email</td>
+                    <td>@message.Message</td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+
+<style>
+    h1, h2, label, input, textarea, table {
+        font-family: Arial;
+    }
+
+    h1, h2 {
+        font-weight: bold;
+    }
+
+    h1 {
+        font: 38px;
+    }
+
+    h2 {
+        font: 28px;
+    }
+
+    label, input, textarea, table {
+        font: 16px;
+    }
+
+    input, textarea {
+        background-color: #ffffff;
+        border-color: #0087aa;
+    }
+
+    input, textarea {
+        width: 500px;
+    }
+
+    input {
+        height: 36px;
+    }
+
+    table, th, td {
+        border: 1px solid #0087aa;
+    }
+
+    .submit {
+        background-color: #0087aa;
+        color: #ffffff;
+    }
+
+    .messagesTable {
+        padding-top: 36px;
+    }
+</style>
